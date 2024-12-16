@@ -1,9 +1,9 @@
-import React, { useState, useContext  }  from "react";
-import AddProduct from "../hook/useInventory";
-//import ProductContext from "../context/ProductContext";
+import React, { useState }  from "react";
+import useInventory from "../hook/useInventory";
 
 
 const ProductForm = () => {
+    const { addProduct } = useInventory()
     const [product, setProduct] = useState({
         name: "",
         price: ""
@@ -12,7 +12,7 @@ const ProductForm = () => {
     const handleOnSubmit = (e) => {
         e.preventDefault();
         const newProduct = { name: product.name, price: product.price };
-        AddProduct();
+        addProduct;
         console.log(newProduct)
         setProduct({ name: "", price: "" });
     };
